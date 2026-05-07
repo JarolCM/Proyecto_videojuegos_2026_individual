@@ -7,15 +7,16 @@
 size = Vector2(24, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhf6x"]
+size = Vector2(22, 22)
 
-[node name="Max" type="CharacterBody2D" unique_id=811387143 node_paths=PackedStringArray("animacion", "area_2d")]
+[node name="max" type="CharacterBody2D" unique_id=811387143 node_paths=PackedStringArray("animacion", "area_2d") groups=["max"]]
 collision_layer = 4
 script = ExtResource("1_eic4x")
 animacion = NodePath("AnimatedSprite2D")
 area_2d = NodePath("Area_Enemigo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636209513]
-position = Vector2(0, -0.5)
+light_mask = 5
 shape = SubResource("RectangleShape2D_eic4x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1668155463]
@@ -28,4 +29,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Enemigo" unique_id=1462292946]
+light_mask = 0
+visibility_layer = 6
 shape = SubResource("RectangleShape2D_nhf6x")

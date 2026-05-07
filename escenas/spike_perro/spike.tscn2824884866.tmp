@@ -162,17 +162,16 @@ animations = [{
 size = Vector2(219, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfbym"]
-size = Vector2(29, 24.875)
+size = Vector2(23, 21)
 
 [node name="spike" type="CharacterBody2D" unique_id=1105146468 node_paths=PackedStringArray("animacion", "area_2d", "area_daño")]
-collision_layer = 3
 script = ExtResource("1_fcahx")
 animacion = NodePath("AnimatedSprite2D")
 area_2d = NodePath("AreaVision")
 "area_daño" = NodePath("AreaDaño")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413912221]
-visible = false
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_iyv66")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1632817471]
@@ -185,16 +184,16 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVision" unique_id=576621403]
-visible = false
 light_mask = 0
-visibility_layer = 4
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_fcahx")
 
 [node name="AreaDaño" type="Area2D" parent="." unique_id=118180591]
-collision_layer = 0
-collision_mask = 4
+light_mask = 2
+visibility_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDaño" unique_id=1098104778]
 light_mask = 0
-visibility_layer = 4
+visibility_layer = 2
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_lfbym")
