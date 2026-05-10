@@ -21,7 +21,8 @@ shape = SubResource("RectangleShape2D_eic4x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1668155463]
 sprite_frames = ExtResource("1_os1ad")
-animation = &"tirar_objeto"
+animation = &"maullido"
+frame_progress = 0.8503655
 
 [node name="Area_Enemigo" type="Area2D" parent="." unique_id=676614093]
 collision_layer = 0
