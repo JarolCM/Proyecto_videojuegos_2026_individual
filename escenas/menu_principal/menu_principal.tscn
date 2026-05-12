@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cs4qpqlc53057"]
 
 [ext_resource type="Theme" uid="uid://dry3oet6kol1s" path="res://temas/boton_menu_principal.tres" id="1_1tgsf"]
+[ext_resource type="PackedScene" uid="uid://c2d5rgjvqg6ho" path="res://escenas/controlador_partida/controlador_partida.tscn" id="1_lbtcn"]
 [ext_resource type="Script" uid="uid://ce00flljr0fmg" path="res://escenas/menu_principal/boton_jugar.gd" id="2_00m27"]
 [ext_resource type="Script" uid="uid://bin8fmddrwb4s" path="res://escenas/menu_principal/boton_salir.gd" id="2_53ly4"]
 [ext_resource type="Script" uid="uid://bqc1gtj7pncoh" path="res://escenas/menu_principal/boton_cargar.gd" id="2_jylg6"]
+[ext_resource type="PackedScene" uid="uid://cime42qfyvx8b" path="res://escenas/escena_principal/escena_principal.tscn" id="3_a8m85"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1tgsf"]
 particle_flag_disable_z = true
@@ -21,6 +23,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="controlador_partida" parent="." unique_id=1623374825 instance=ExtResource("1_lbtcn")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1208245872]
 layout_mode = 1
@@ -42,12 +46,15 @@ layout_mode = 2
 theme = ExtResource("1_1tgsf")
 text = "Jugar"
 script = ExtResource("2_00m27")
+escena_principal = ExtResource("3_a8m85")
 
-[node name="Cargar" type="Button" parent="VBoxContainer" unique_id=767919143]
+[node name="Cargar" type="Button" parent="VBoxContainer" unique_id=767919143 node_paths=PackedStringArray("controlador_partida", "boton_jugar")]
 layout_mode = 2
 theme = ExtResource("1_1tgsf")
 text = "Cargar"
 script = ExtResource("2_jylg6")
+controlador_partida = NodePath("../../controlador_partida")
+boton_jugar = NodePath("../Jugar")
 
 [node name="Salir" type="Button" parent="VBoxContainer" unique_id=2041166103]
 layout_mode = 2

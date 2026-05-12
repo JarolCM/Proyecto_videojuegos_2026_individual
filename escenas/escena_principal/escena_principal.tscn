@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cime42qfyvx8b"]
+
+[ext_resource type="Script" uid="uid://b2b5v6srcwud7" path="res://escenas/escena_principal/escena_principal.gd" id="1_snxy5"]
+[ext_resource type="PackedScene" uid="uid://c5a1bhe14oyro" path="res://escenas/niveles/nivel_prueba.tscn" id="2_yoxmf"]
+[ext_resource type="PackedScene" uid="uid://bctrsl2t26l6q" path="res://escenas/niveles/nivel_prueba2.tscn" id="3_sbgap"]
+[ext_resource type="PackedScene" uid="uid://cu1no7h2w3riy" path="res://escenas/escena_final/escena_final.tscn" id="4_rrast"]
+[ext_resource type="PackedScene" uid="uid://c2d5rgjvqg6ho" path="res://escenas/controlador_partida/controlador_partida.tscn" id="4_sbgap"]
+[ext_resource type="PackedScene" uid="uid://cnps3fg5txyk6" path="res://escenas/contador_muertes/contador_muertes.tscn" id="6_y7kll"]
+[ext_resource type="PackedScene" uid="uid://nevbdfd2126g" path="res://escenas/contador_maullidos/contador_maullidos.tscn" id="7_px6n3"]
+
+[node name="escena_principal" type="Node2D" unique_id=976990558 node_paths=PackedStringArray("controlador_partida")]
+script = ExtResource("1_snxy5")
+niveles = Array[PackedScene]([ExtResource("2_yoxmf"), ExtResource("3_sbgap"), ExtResource("4_rrast")])
+controlador_partida = NodePath("controlador_partida")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1138552553]
+zoom = Vector2(1.87, 1.87)
+
+[node name="controlador_partida" parent="." unique_id=1623374825 instance=ExtResource("4_sbgap")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1011504953]
+bus = &"Musica"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=823410504]
+
+[node name="ContadorMuertes" parent="CanvasLayer" unique_id=1961199012 instance=ExtResource("6_y7kll")]
+
+[node name="ContadorMaullidos" parent="CanvasLayer" unique_id=1081798475 instance=ExtResource("7_px6n3")]

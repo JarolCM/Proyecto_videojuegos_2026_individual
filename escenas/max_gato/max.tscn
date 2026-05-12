@@ -2,18 +2,24 @@
 
 [ext_resource type="Script" uid="uid://dc48x8ond6qth" path="res://escenas/max_gato/max.gd" id="1_eic4x"]
 [ext_resource type="SpriteFrames" uid="uid://b2ghv75fch23q" path="res://escenas/max_gato/sprite_frames_max.tres" id="1_os1ad"]
+[ext_resource type="AudioStream" uid="uid://bqv1mlqt3slie" path="res://sonidos/meow.mp3" id="3_nhf6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eic4x"]
 size = Vector2(24, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhf6x"]
-size = Vector2(22, 22)
+size = Vector2(25, 24)
 
-[node name="max" type="CharacterBody2D" unique_id=811387143 node_paths=PackedStringArray("animacion", "area_2d") groups=["max"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia53t"]
+size = Vector2(24, 22)
+
+[node name="max" type="CharacterBody2D" unique_id=811387143 node_paths=PackedStringArray("animacion", "area_enemigo", "area_victoria", "reproductor") groups=["max"]]
 collision_layer = 4
 script = ExtResource("1_eic4x")
 animacion = NodePath("AnimatedSprite2D")
-area_2d = NodePath("Area_Enemigo")
+area_enemigo = NodePath("Area_Enemigo")
+area_victoria = NodePath("Area_Victoria")
+reproductor = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636209513]
 light_mask = 5
@@ -23,11 +29,25 @@ shape = SubResource("RectangleShape2D_eic4x")
 sprite_frames = ExtResource("1_os1ad")
 animation = &"tirar_objeto"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=191793239]
+stream = ExtResource("3_nhf6x")
+volume_db = -10.0
+bus = &"SFX"
+
 [node name="Area_Enemigo" type="Area2D" parent="." unique_id=676614093]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Enemigo" unique_id=1462292946]
 light_mask = 0
-visibility_layer = 6
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_nhf6x")
+
+[node name="Area_Victoria" type="Area2D" parent="." unique_id=1629150248]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Victoria" unique_id=258974737]
+light_mask = 0
+visibility_layer = 8
+shape = SubResource("RectangleShape2D_ia53t")

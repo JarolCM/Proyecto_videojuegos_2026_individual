@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cu1no7h2w3riy"]
+
+[ext_resource type="Script" uid="uid://8ai84qosdedj" path="res://escena_final.gd" id="1_0jc1b"]
+[ext_resource type="Theme" uid="uid://c4mhi78qpokvo" path="res://temas/intefaz_ingame.tres" id="2_b5myx"]
+
+[node name="escena_final" type="Node2D" unique_id=1265772160 node_paths=PackedStringArray("label")]
+script = ExtResource("1_0jc1b")
+label = NodePath("VBoxContainer/Calificacion")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=317935974]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -44.5
+offset_right = 89.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Felicitaciones" type="Label" parent="VBoxContainer" unique_id=1704216764]
+layout_mode = 2
+theme = ExtResource("2_b5myx")
+theme_override_font_sizes/font_size = 32
+text = "Felicidades! Max esta muy feliz"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=621372550]
+layout_mode = 2
+theme = ExtResource("2_b5myx")
+theme_override_font_sizes/font_size = 32
+text = "Eres todo un"
+horizontal_alignment = 1
+
+[node name="Calificacion" type="Label" parent="VBoxContainer" unique_id=767320783]
+layout_mode = 2
+theme = ExtResource("2_b5myx")
+theme_override_font_sizes/font_size = 32
+text = "*Calificacion*"
+horizontal_alignment = 1

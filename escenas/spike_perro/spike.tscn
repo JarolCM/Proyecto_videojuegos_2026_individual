@@ -159,20 +159,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcahx"]
-size = Vector2(209.5, 102)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfbym"]
-size = Vector2(29, 24.875)
+size = Vector2(220.375, 122.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjkn1"]
-size = Vector2(263.9375, 143.5625)
+size = Vector2(393.98438, 183.78125)
 
-[node name="spike" type="CharacterBody2D" unique_id=1105146468 node_paths=PackedStringArray("animacion", "area_vision", "area_daño", "area_escucha")]
+[node name="spike" type="CharacterBody2D" unique_id=1105146468 node_paths=PackedStringArray("animacion", "area_vision", "area_escucha")]
 collision_layer = 3
 script = ExtResource("1_fcahx")
 animacion = NodePath("AnimatedSprite2D")
 area_vision = NodePath("AreaVision")
-"area_daño" = NodePath("AreaDaño")
 area_escucha = NodePath("AreaEscucha")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413912221]
@@ -190,15 +186,6 @@ collision_mask = 4
 light_mask = 0
 visibility_layer = 4
 shape = SubResource("RectangleShape2D_fcahx")
-
-[node name="AreaDaño" type="Area2D" parent="." unique_id=118180591]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDaño" unique_id=1098104778]
-light_mask = 0
-visibility_layer = 4
-shape = SubResource("RectangleShape2D_lfbym")
 
 [node name="AreaEscucha" type="Area2D" parent="." unique_id=868141709]
 

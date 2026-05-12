@@ -1,12 +1,17 @@
 extends Node
 
 signal sonido_generado(posicion)
+signal muertes_actualizado()
+signal maullidos_actualizado()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var nivel: int
+var muertes: int
+var maullidos: int
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func sumar_muerte():
+	muertes += 1
+	muertes_actualizado.emit()
+	
+func sumar_maullido():
+	maullidos += 1
+	maullidos_actualizado.emit()

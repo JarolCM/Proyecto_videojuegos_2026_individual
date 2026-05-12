@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://nevbdfd2126g"]
+
+[ext_resource type="Script" uid="uid://rva3pasv7dia" path="res://escenas/contador_maullidos/contador_maullidos.gd" id="1_pb4uh"]
+[ext_resource type="Theme" uid="uid://c4mhi78qpokvo" path="res://temas/intefaz_ingame.tres" id="2_tklpx"]
+
+[node name="ContadorMaullidos" type="Control" unique_id=1081798475 node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pb4uh")
+label = NodePath("ColorRect/HBoxContainer/Valor")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=372802709]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 40.0
+color = Color(0, 1, 0.4000001, 0.48235294)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=5056589]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -20.0
+offset_right = 44.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="ColorRect/HBoxContainer" unique_id=787844372]
+layout_mode = 2
+theme = ExtResource("2_tklpx")
+text = "Maullidos: "
+
+[node name="Valor" type="Label" parent="ColorRect/HBoxContainer" unique_id=1885870942]
+layout_mode = 2
+theme = ExtResource("2_tklpx")

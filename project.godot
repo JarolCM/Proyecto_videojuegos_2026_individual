@@ -11,13 +11,22 @@ config_version=5
 [application]
 
 config/name="MaxTheStreetCat"
-run/main_scene="uid://c5a1bhe14oyro"
+run/main_scene="uid://cs4qpqlc53057"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://gh18d6jh8tln"
 
 [autoload]
 
 "SeñalesGlobales"="*uid://ckrle8qdrly4k"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [global_group]
 
