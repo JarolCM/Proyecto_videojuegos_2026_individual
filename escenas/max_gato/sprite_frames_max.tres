@@ -125,16 +125,16 @@ region = Rect2(0, 32, 32, 32)
 [resource]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.9,
 "texture": SubResource("AtlasTexture_htv1o")
 }, {
-"duration": 1.0,
+"duration": 0.9,
 "texture": SubResource("AtlasTexture_ve1ws")
 }, {
-"duration": 1.0,
+"duration": 0.9,
 "texture": SubResource("AtlasTexture_krpbp")
 }, {
-"duration": 1.0,
+"duration": 0.9,
 "texture": SubResource("AtlasTexture_3dmau")
 }],
 "loop": true,
@@ -159,16 +159,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.7,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_eaqt8")
 }, {
-"duration": 0.7,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_p03md")
 }, {
-"duration": 0.7,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_ucr5r")
 }, {
-"duration": 0.7,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_tdvht")
 }],
 "loop": false,
@@ -211,10 +211,10 @@ animations = [{
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_4gwow")
 }, {
-"duration": 0.5,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_it662")
 }],
 "loop": false,
@@ -222,19 +222,19 @@ animations = [{
 "speed": 2.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_5s54p")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_j7mys")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_yvrbx")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_ge622")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_xjel8")
 }],
 "loop": true,

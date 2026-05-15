@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b110bf03fg85a"]
+
+[ext_resource type="Script" uid="uid://dvt64jlyjj218" path="res://escenas/escondite/escondite.gd" id="1_u0ptj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw0yk"]
+size = Vector2(27, 21)
+
+[node name="Escondite" type="Node2D" unique_id=809293679]
+script = ExtResource("1_u0ptj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=918743572]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=503691213]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=379819822]
+shape = SubResource("RectangleShape2D_aw0yk")

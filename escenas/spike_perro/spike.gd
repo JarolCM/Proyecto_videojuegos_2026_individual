@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var area_vision: Area2D
 @export var area_escucha: Area2D
 
-const SPEED = 90.0
+const SPEED = 120.0
 
 var jugador_max: CharacterBody2D = null
 var objetivo_sonido: Vector2
@@ -47,6 +47,15 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+	# Persigue si no se escondio
+	if jugador_max and !jugador_max.escondido: 
+		var direction = sign(jugador_max.global_position.x - global_position.x)
+		velocity.x = direction * SPEED
+		investigando_sonido = false
+	else:
+		if jugador_max and jugador_max.escondido:
+			jugador_max = null
+	
 	# Animaciones
 	if velocity.x != 0:
 		animacion.flip_h = velocity.x < 0
@@ -58,13 +67,11 @@ func _physics_process(delta: float) -> void:
 func _on_area_vision_body_entered(body: Node2D) -> void:
 	if body.is_in_group("max"):
 		jugador_max = body
-		print("¡Max detectado!")
 
 # Cuando max sale del campo de vision de spike
 func _on_area_vision_body_exited(body: Node2D) -> void:
 	if body.is_in_group("max"):
 		jugador_max = null
-		print("Max salió del rango")
 
 
 func _on_sonido_escuchado(posicion_sonido: Vector2):

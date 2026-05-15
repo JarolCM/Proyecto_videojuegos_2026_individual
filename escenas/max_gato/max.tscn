@@ -10,15 +10,19 @@ size = Vector2(24, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhf6x"]
 size = Vector2(25, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia53t"]
-size = Vector2(24, 22)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6pnv"]
+size = Vector2(26, 24)
 
-[node name="max" type="CharacterBody2D" unique_id=811387143 node_paths=PackedStringArray("animacion", "area_enemigo", "area_victoria", "reproductor") groups=["max"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia53t"]
+size = Vector2(26, 24)
+
+[node name="max" type="CharacterBody2D" unique_id=811387143 node_paths=PackedStringArray("animacion", "area_enemigo", "area_victoria", "area_interaccion", "reproductor") groups=["max"]]
 collision_layer = 4
 script = ExtResource("1_eic4x")
 animacion = NodePath("AnimatedSprite2D")
 area_enemigo = NodePath("Area_Enemigo")
 area_victoria = NodePath("Area_Victoria")
+area_interaccion = NodePath("Area_Interaccion")
 reproductor = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636209513]
@@ -43,9 +47,16 @@ light_mask = 0
 visibility_layer = 2
 shape = SubResource("RectangleShape2D_nhf6x")
 
+[node name="Area_Interaccion" type="Area2D" parent="." unique_id=1683052687]
+collision_layer = 0
+collision_mask = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Interaccion" unique_id=148396640]
+shape = SubResource("RectangleShape2D_q6pnv")
+
 [node name="Area_Victoria" type="Area2D" parent="." unique_id=1629150248]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Victoria" unique_id=258974737]
 light_mask = 0

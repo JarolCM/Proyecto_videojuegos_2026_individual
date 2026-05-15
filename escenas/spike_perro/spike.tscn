@@ -159,10 +159,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcahx"]
-size = Vector2(220.375, 122.5)
+size = Vector2(195.39844, 73.37891)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjkn1"]
-size = Vector2(393.98438, 183.78125)
+size = Vector2(430, 183.78125)
 
 [node name="spike" type="CharacterBody2D" unique_id=1105146468 node_paths=PackedStringArray("animacion", "area_vision", "area_escucha")]
 collision_layer = 3

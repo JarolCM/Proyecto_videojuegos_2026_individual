@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bn0tdryq0d10v"]
+
+[ext_resource type="Script" uid="uid://c13yqhpsh8s68" path="res://escenas/interactuable/interactuable.gd" id="1_epdb8"]
+[ext_resource type="AudioStream" uid="uid://cmqdeu7g4js5y" path="res://sonidos/bonk.mp3" id="2_epdb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xj80"]
+size = Vector2(5, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwqkb"]
+size = Vector2(8, 10)
+
+[node name="interactuable" type="CharacterBody2D" unique_id=298775288 node_paths=PackedStringArray("reproductor")]
+collision_layer = 9
+script = ExtResource("1_epdb8")
+reproductor = NodePath("AudioStreamPlayer2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=746088606]
+shape = SubResource("RectangleShape2D_3xj80")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1935193128]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1909413532]
+stream = ExtResource("2_epdb8")
+bus = &"SFX"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1591911478]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=545309330]
+shape = SubResource("RectangleShape2D_uwqkb")
