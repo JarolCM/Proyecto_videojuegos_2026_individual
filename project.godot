@@ -28,10 +28,6 @@ buses/default_bus_layout="uid://gh18d6jh8tln"
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
-[global_group]
-
-max="personaje principal"
-
 [input]
 
 izquierda={

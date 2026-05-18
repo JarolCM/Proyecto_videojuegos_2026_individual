@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var area_vision: Area2D
 @export var area_escucha: Area2D
 
+@onready var signo_interrogacion = $SignoInterrogacion
+
 const SPEED = 120.0
 
 var jugador_max: CharacterBody2D = null
@@ -13,6 +15,7 @@ var investigando_sonido := false
 func _ready():
 	area_vision.body_entered.connect(_on_area_vision_body_entered)
 	area_vision.body_exited.connect(_on_area_vision_body_exited)
+	signo_interrogacion.visible = false
 	
 	SeñalesGlobales.sonido_generado.connect(_on_sonido_escuchado)
 	
@@ -25,16 +28,18 @@ func _physics_process(delta: float) -> void:
 	# Movimiento
 	# Ir a jugador
 	if jugador_max:
+		signo_interrogacion.visible = false
 		var direction = sign(jugador_max.global_position.x - global_position.x)
 		velocity.x = direction * SPEED
 		investigando_sonido = false
 	
 	# Ir a sonido
 	elif investigando_sonido:
+		signo_interrogacion.visible = true
 		var direction = sign(objetivo_sonido.x - global_position.x)
 		velocity.x = direction * SPEED
 
-		if abs(global_position.x - objetivo_sonido.x) < 10:
+		if abs(global_position.x - objetivo_sonido.x) < 3:
 			investigando_sonido = false
 			velocity.x = 0
 		
@@ -43,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Sin objetivos
 	else:
+		signo_interrogacion.visible = false
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
@@ -86,4 +92,3 @@ func _on_sonido_escuchado(posicion_sonido: Vector2):
 		if jugador_max == null:
 			objetivo_sonido = posicion_sonido
 			investigando_sonido = true
-			print("¡Spike escuchó algo en: ", posicion_sonido, "!")

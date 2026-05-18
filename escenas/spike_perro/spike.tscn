@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bwxwn5tvyj5tx" path="res://escenas/spike_perro/spike.gd" id="1_fcahx"]
 [ext_resource type="Texture2D" uid="uid://bbxhvc66dixhk" path="res://sprites/Spike-Caminar.png" id="1_tyr2t"]
 [ext_resource type="Texture2D" uid="uid://byh25wdv70b1n" path="res://sprites/Spike-Idle.png" id="2_fcahx"]
+[ext_resource type="Texture2D" uid="uid://bl3m6qbh0qluu" path="res://sprites/Signo_Pregunta.png" id="2_lfbym"]
 [ext_resource type="Texture2D" uid="uid://cm0anegfxvsr6" path="res://sprites/Spike-Ladrido.png" id="3_lfbym"]
 [ext_resource type="Texture2D" uid="uid://btdsoqqoipw1c" path="res://sprites/Spike-Levantandose.png" id="4_gjkn1"]
 
@@ -159,17 +160,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcahx"]
-size = Vector2(195.39844, 73.37891)
+size = Vector2(195.39844, 81.68945)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjkn1"]
-size = Vector2(430, 183.78125)
+size = Vector2(459, 183.78125)
 
 [node name="spike" type="CharacterBody2D" unique_id=1105146468 node_paths=PackedStringArray("animacion", "area_vision", "area_escucha")]
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_fcahx")
 animacion = NodePath("AnimatedSprite2D")
 area_vision = NodePath("AreaVision")
 area_escucha = NodePath("AreaEscucha")
+
+[node name="SignoInterrogacion" type="Sprite2D" parent="." unique_id=2056161208]
+position = Vector2(0, -18)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_lfbym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413912221]
 shape = SubResource("RectangleShape2D_iyv66")
@@ -185,6 +191,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVision" unique_id=576621403]
 light_mask = 0
 visibility_layer = 4
+position = Vector2(0, 4.1552734)
 shape = SubResource("RectangleShape2D_fcahx")
 
 [node name="AreaEscucha" type="Area2D" parent="." unique_id=868141709]

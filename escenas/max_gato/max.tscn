@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dc48x8ond6qth" path="res://escenas/max_gato/max.gd" id="1_eic4x"]
 [ext_resource type="SpriteFrames" uid="uid://b2ghv75fch23q" path="res://escenas/max_gato/sprite_frames_max.tres" id="1_os1ad"]
+[ext_resource type="Texture2D" uid="uid://doj2eurjiy7u8" path="res://sprites/Signo_Exclamacion.png" id="2_ia53t"]
 [ext_resource type="AudioStream" uid="uid://bqv1mlqt3slie" path="res://sonidos/meow.mp3" id="3_nhf6x"]
+[ext_resource type="Material" uid="uid://b6ft3w2ydsqh8" path="res://escenas/max_gato/material_max_rojo.tres" id="3_q6pnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eic4x"]
 size = Vector2(24, 21)
@@ -16,7 +18,7 @@ size = Vector2(26, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia53t"]
 size = Vector2(26, 24)
 
-[node name="max" type="CharacterBody2D" unique_id=811387143 node_paths=PackedStringArray("animacion", "area_enemigo", "area_victoria", "area_interaccion", "reproductor") groups=["max"]]
+[node name="max" type="CharacterBody2D" unique_id=811387143 node_paths=PackedStringArray("animacion", "area_enemigo", "area_victoria", "area_interaccion", "reproductor")]
 collision_layer = 4
 script = ExtResource("1_eic4x")
 animacion = NodePath("AnimatedSprite2D")
@@ -24,6 +26,12 @@ area_enemigo = NodePath("Area_Enemigo")
 area_victoria = NodePath("Area_Victoria")
 area_interaccion = NodePath("Area_Interaccion")
 reproductor = NodePath("AudioStreamPlayer2D")
+material_max_rojo = ExtResource("3_q6pnv")
+
+[node name="Indicador_Interaccion" type="Sprite2D" parent="." unique_id=1771560264]
+position = Vector2(4.5, -18)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ia53t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636209513]
 light_mask = 5

@@ -1,13 +1,19 @@
 extends CharacterBody2D
 
 signal max_muerto
-
+signal mostrar_interaccion
+signal mostrar_escondite
+signal ocultar_interfaz
 
 @export var animacion: AnimatedSprite2D
 @export var area_enemigo: Area2D
 @export var area_victoria: Area2D
 @export var area_interaccion: Area2D
 @export var reproductor: AudioStreamPlayer2D
+@export var material_max_rojo: ShaderMaterial
+
+@onready var hitbox = $Area_Enemigo/CollisionShape2D
+@onready var indicadorInteraccion = $Indicador_Interaccion
 
 # Constantes de movimiento
 const _SPEED = 65.0
@@ -20,10 +26,14 @@ var _victoria: bool
 # Estados
 var escondido := false
 var escondite_actual = null
+var mostrando_ui := false
+var tipo_actual := ""
 
 func _ready():
+	add_to_group("max")
 	area_enemigo.body_entered.connect(_on_area_enemigo_body_entered)
 	area_victoria.body_entered.connect(_on_area_victoria_body_entered)
+	indicadorInteraccion.visible = false
 
 
 func _physics_process(delta: float) -> void:
@@ -46,6 +56,25 @@ func _physics_process(delta: float) -> void:
 			salir_escondite()
 		return
 	
+	# Para hacer aparecer el indicador
+	var objeto_cerca = detectar_interactuable()
+	var escondite_cerca = detectar_escondite()
+	
+	if objeto_cerca or escondite_cerca:
+		indicadorInteraccion.visible = true
+	else:
+		indicadorInteraccion.visible = false
+	
+	# UI esquina pantalla
+	if escondite_cerca:
+		mostrar_escondite.emit()
+
+	if objeto_cerca:
+		mostrar_interaccion.emit()
+
+	if !escondite_cerca and !objeto_cerca:
+		ocultar_interfaz.emit()
+	
 	# Movimiento
 	if not bloqueado:
 		var direction := Input.get_axis("izquierda", "derecha")
@@ -56,10 +85,12 @@ func _physics_process(delta: float) -> void:
 		if direction < 0:
 			velocity.x = direction * _SPEED
 			animacion.flip_h = true
+			indicadorInteraccion.position = Vector2(-4.5,-18.0)
 
 		elif direction > 0:
 			velocity.x = direction * _SPEED
 			animacion.flip_h = false
+			indicadorInteraccion.position = Vector2(4.5,-18.0)
 
 		else:
 			velocity.x = move_toward(velocity.x, 0, _SPEED)
@@ -113,8 +144,9 @@ func _physics_process(delta: float) -> void:
 			# Empujar hacia donde Max esta mirando
 			var direccion = -1.0 if animacion.flip_h else 1.0
 			objeto.ser_empujado(direccion)
-			print("Empujando objeto...")
 		return
+	
+	
 	
 	# Animaciones de movimiento
 	if !is_on_floor():
@@ -138,12 +170,10 @@ func detectar_escondite():
 func entrar_escondite(escondite):
 	escondido = true
 	escondite_actual = escondite
-
+	
 	# Desactivar colisiones físicas
-	set_collision_layer_value(1, false)
-	set_collision_mask_value(1, false)
-
 	set_collision_layer_value(3, false)
+	hitbox.disabled = true
 	
 	velocity = Vector2.ZERO
 	visible = false 
@@ -152,12 +182,10 @@ func entrar_escondite(escondite):
 func salir_escondite():
 	escondido = false
 	
-	set_collision_layer_value(1, true)
-	set_collision_mask_value(1, true)
-	
 	# Volver a ser detectable
 	set_collision_layer_value(3, true) 
-
+	hitbox.disabled = false
+	
 	visible = true
 	if escondite_actual:
 		escondite_actual.desocupar()
@@ -173,7 +201,7 @@ func detectar_interactuable():
 
 # Funcion colision de daño (Game Over)
 func _on_area_enemigo_body_entered(_body: Node2D) -> void:
-	print("game over")
+	animacion.material = material_max_rojo
 	_muerto = true
 	animacion.stop()
 	
@@ -185,7 +213,6 @@ func _on_area_enemigo_body_entered(_body: Node2D) -> void:
 
 # Funcion al llegar meta (WIN)
 func _on_area_victoria_body_entered(_body: Node2D) -> void:
-	print("win")
 	_victoria = true
 	animacion.play("victoria")
 	
