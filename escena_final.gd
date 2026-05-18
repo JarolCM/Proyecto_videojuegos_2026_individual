@@ -10,19 +10,18 @@ func _ready() -> void:
 
 
 func _calificacion_final(muertes, maullidos):
-
-	if muertes == 0 and maullidos <= 5:
+	if muertes == 0 and maullidos <= 3:
 		_texto = "Gatito Ninja, experto en sigilo"
-
+	
 	elif muertes <= 2 and maullidos >= 10:
 		_texto = "Gatito Rey de la Bulla y el Caos"
-
+	
 	elif muertes <= 4:
 		_texto = "Gatito Experto en atunes"
-
+	
 	else:
 		_texto = "Gatito noob, manquito, pero feliz :3"
-
+	
 	_actualizar_texto()
 
 func _actualizar_texto():

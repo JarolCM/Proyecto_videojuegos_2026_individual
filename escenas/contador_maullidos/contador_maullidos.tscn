@@ -43,3 +43,4 @@ text = "Maullidos: "
 [node name="Valor" type="Label" parent="ColorRect/HBoxContainer" unique_id=1885870942]
 layout_mode = 2
 theme = ExtResource("2_tklpx")
+text = "0"

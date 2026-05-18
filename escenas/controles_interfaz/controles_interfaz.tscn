@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cvdp5bc1p7w53"]
+
+[ext_resource type="Theme" uid="uid://c4mhi78qpokvo" path="res://temas/intefaz_ingame.tres" id="1_2yg6a"]
+[ext_resource type="Script" uid="uid://crcolbwqgf2or" path="res://escenas/controles_interfaz/controles_interfaz.gd" id="1_pbxot"]
+
+[node name="Control" type="Control" unique_id=396211580]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pbxot")
+
+[node name="Interact" type="ColorRect" parent="." unique_id=1111282070]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -121.0
+offset_bottom = 40.0
+grow_horizontal = 0
+color = Color(0.4832533, 0.35922757, 1, 0.3882353)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interact" unique_id=246024314]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -20.0
+offset_right = 43.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="Interact/HBoxContainer" unique_id=899584452]
+layout_mode = 2
+theme = ExtResource("1_2yg6a")
+text = "Botar Objeto:"
+
+[node name="Valor" type="Label" parent="Interact/HBoxContainer" unique_id=1460587305]
+layout_mode = 2
+theme = ExtResource("1_2yg6a")
+text = "E"
+
+[node name="Hide" type="ColorRect" parent="." unique_id=1226005394]
+layout_mode = 0
+offset_left = 1031.0
+offset_top = 40.0
+offset_right = 1152.0
+offset_bottom = 80.0
+color = Color(0.71954507, 0.003400534, 0.9929418, 0.3882353)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hide" unique_id=1701709857]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -20.0
+offset_right = 43.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="Hide/HBoxContainer" unique_id=2051461520]
+layout_mode = 2
+theme = ExtResource("1_2yg6a")
+text = "Esconderse: "
+
+[node name="Valor" type="Label" parent="Hide/HBoxContainer" unique_id=907398154]
+layout_mode = 2
+theme = ExtResource("1_2yg6a")
+text = "W"
+
+[node name="Maullido" type="ColorRect" parent="." unique_id=662147807]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -121.0
+offset_top = 80.0
+offset_bottom = 120.0
+grow_horizontal = 0
+color = Color(0.7828266, 0.14475766, 0.7979617, 0.3882353)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Maullido" unique_id=1039795251]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -20.0
+offset_right = 43.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="Maullido/HBoxContainer" unique_id=631477325]
+layout_mode = 2
+theme = ExtResource("1_2yg6a")
+text = "Maullar: "
+
+[node name="Valor" type="Label" parent="Maullido/HBoxContainer" unique_id=847654093]
+layout_mode = 2
+theme = ExtResource("1_2yg6a")
+text = "Q"

@@ -10,7 +10,7 @@ size = Vector2(5, 8.5)
 size = Vector2(8, 10)
 
 [node name="interactuable" type="CharacterBody2D" unique_id=298775288 node_paths=PackedStringArray("reproductor")]
-collision_layer = 9
+collision_layer = 8
 script = ExtResource("1_epdb8")
 reproductor = NodePath("AudioStreamPlayer2D")
 

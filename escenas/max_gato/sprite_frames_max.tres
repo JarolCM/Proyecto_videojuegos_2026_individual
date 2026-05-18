@@ -208,7 +208,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"saltar",
-"speed": 15.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 0.3,

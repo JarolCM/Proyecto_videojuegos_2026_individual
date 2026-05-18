@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://cime42qfyvx8b"]
 
 [ext_resource type="Script" uid="uid://b2b5v6srcwud7" path="res://escenas/escena_principal/escena_principal.gd" id="1_snxy5"]
+[ext_resource type="PackedScene" uid="uid://b7nittfyrtyg2" path="res://escenas/niveles/nivel_3.tscn" id="2_asb8d"]
 [ext_resource type="PackedScene" uid="uid://3ywwege1o3b1" path="res://escenas/niveles/nivel_1.tscn" id="2_e307b"]
 [ext_resource type="PackedScene" uid="uid://dao17v0rfivii" path="res://escenas/niveles/nivel_2.tscn" id="3_px6n3"]
 [ext_resource type="PackedScene" uid="uid://cu1no7h2w3riy" path="res://escenas/escena_final/escena_final.tscn" id="4_rrast"]
 [ext_resource type="PackedScene" uid="uid://c2d5rgjvqg6ho" path="res://escenas/controlador_partida/controlador_partida.tscn" id="4_sbgap"]
 [ext_resource type="PackedScene" uid="uid://cnps3fg5txyk6" path="res://escenas/contador_muertes/contador_muertes.tscn" id="6_y7kll"]
 [ext_resource type="PackedScene" uid="uid://nevbdfd2126g" path="res://escenas/contador_maullidos/contador_maullidos.tscn" id="7_px6n3"]
+[ext_resource type="PackedScene" uid="uid://cvdp5bc1p7w53" path="res://escenas/controles_interfaz/controles_interfaz.tscn" id="9_asb8d"]
 
 [node name="escena_principal" type="Node2D" unique_id=976990558 node_paths=PackedStringArray("controlador_partida")]
 script = ExtResource("1_snxy5")
-niveles = Array[PackedScene]([ExtResource("2_e307b"), ExtResource("3_px6n3"), ExtResource("4_rrast")])
+niveles = Array[PackedScene]([ExtResource("2_e307b"), ExtResource("3_px6n3"), ExtResource("2_asb8d"), ExtResource("4_rrast")])
 controlador_partida = NodePath("controlador_partida")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1138552553]
@@ -26,3 +28,7 @@ bus = &"Musica"
 [node name="ContadorMuertes" parent="CanvasLayer" unique_id=1961199012 instance=ExtResource("6_y7kll")]
 
 [node name="ContadorMaullidos" parent="CanvasLayer" unique_id=1081798475 instance=ExtResource("7_px6n3")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1941012368]
+
+[node name="Control" parent="CanvasLayer2" unique_id=396211580 instance=ExtResource("9_asb8d")]
