@@ -15,15 +15,15 @@ func conectar_jugador():
 
 	await get_tree().process_frame
 
-	var max = get_tree().get_first_node_in_group("max")
+	var jugador_max = get_tree().get_first_node_in_group("max")
 
-	if max and max != max_actual:
+	if jugador_max and jugador_max != max_actual:
 
-		max_actual = max
+		max_actual = jugador_max
 
-		max.mostrar_interaccion.connect(_mostrar_interact)
-		max.mostrar_escondite.connect(_mostrar_hide)
-		max.ocultar_interfaz.connect(_ocultar_ui)
+		jugador_max.mostrar_interaccion.connect(_mostrar_interact)
+		jugador_max.mostrar_escondite.connect(_mostrar_hide)
+		jugador_max.ocultar_interfaz.connect(_ocultar_ui)
 
 func _process(_delta):
 	# Si el jugador fue destruido

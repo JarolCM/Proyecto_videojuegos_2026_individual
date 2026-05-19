@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cu1no7h2w3riy"]
 
-[ext_resource type="Script" uid="uid://8ai84qosdedj" path="res://escena_final.gd" id="1_0jc1b"]
+[ext_resource type="Script" uid="uid://8ai84qosdedj" path="res://escenas/escena_final/escena_final.gd" id="1_0jc1b"]
 [ext_resource type="Theme" uid="uid://c4mhi78qpokvo" path="res://temas/intefaz_ingame.tres" id="2_b5myx"]
 
 [node name="escena_final" type="Node2D" unique_id=1265772160 node_paths=PackedStringArray("label")]
