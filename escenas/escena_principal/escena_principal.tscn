@@ -7,21 +7,27 @@
 [ext_resource type="PackedScene" uid="uid://cu1no7h2w3riy" path="res://escenas/escena_final/escena_final.tscn" id="4_rrast"]
 [ext_resource type="PackedScene" uid="uid://c2d5rgjvqg6ho" path="res://escenas/controlador_partida/controlador_partida.tscn" id="4_sbgap"]
 [ext_resource type="PackedScene" uid="uid://cnps3fg5txyk6" path="res://escenas/contador_muertes/contador_muertes.tscn" id="6_y7kll"]
+[ext_resource type="AudioStream" uid="uid://wj866hynd8dl" path="res://musica/Paradise_Paradise_DELTARUNE-Toby Fox.ogg" id="7_ictn0"]
 [ext_resource type="PackedScene" uid="uid://nevbdfd2126g" path="res://escenas/contador_maullidos/contador_maullidos.tscn" id="7_px6n3"]
 [ext_resource type="PackedScene" uid="uid://cvdp5bc1p7w53" path="res://escenas/controles_interfaz/controles_interfaz.tscn" id="9_asb8d"]
 
-[node name="escena_principal" type="Node2D" unique_id=976990558 node_paths=PackedStringArray("controlador_partida")]
+[node name="escena_principal" type="Node2D" unique_id=976990558 node_paths=PackedStringArray("controlador_partida", "sound_track")]
 script = ExtResource("1_snxy5")
 niveles = Array[PackedScene]([ExtResource("2_e307b"), ExtResource("3_px6n3"), ExtResource("2_asb8d"), ExtResource("4_rrast")])
 controlador_partida = NodePath("controlador_partida")
+sound_track = NodePath("AudioStreamPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1138552553]
 zoom = Vector2(1.8, 1.8)
 
 [node name="controlador_partida" parent="." unique_id=1623374825 instance=ExtResource("4_sbgap")]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1011504953]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1457810955]
+stream = ExtResource("7_ictn0")
+volume_db = -15.0
+autoplay = true
 bus = &"Musica"
+parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=823410504]
 

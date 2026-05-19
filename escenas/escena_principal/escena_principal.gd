@@ -2,7 +2,7 @@ extends Node2D
 
 @export var niveles: Array[PackedScene]
 @export var controlador_partida: ControladorPartida
-
+@export var sound_track: AudioStreamPlayer
 
 var _nivel_actual: int = 1
 var _nivel_instanciado: Node

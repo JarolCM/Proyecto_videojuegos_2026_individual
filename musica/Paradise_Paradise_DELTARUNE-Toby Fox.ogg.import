@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://wj866hynd8dl"
+path="res://.godot/imported/Paradise_Paradise_DELTARUNE-Toby Fox.ogg-07d115f831917e307421dcc145254a5e.oggvorbisstr"
+
+[deps]
+
+source_file="res://musica/Paradise_Paradise_DELTARUNE-Toby Fox.ogg"
+dest_files=["res://.godot/imported/Paradise_Paradise_DELTARUNE-Toby Fox.ogg-07d115f831917e307421dcc145254a5e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
